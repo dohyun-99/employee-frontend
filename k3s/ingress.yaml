@@ -8,7 +8,7 @@ metadata:
     ingressclass.kubernetes.io/is-default-class: "true"
 spec:
   rules:
-  - host: argocd.211.43.12.178.nip.io
+  - host: dodom2.duckdns.org
     http:
       paths:
       - path: /
