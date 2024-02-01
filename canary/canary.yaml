@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: canary-rollouts-demo
-        image: particule/simplecolorapi:1.0
+        image: ghcr.io/shclub/simplecolorapi:2.0
         imagePullPolicy: Always
         ports:
         - containerPort: 5000
@@ -34,8 +34,9 @@ metadata:
 spec:
   selector:
     app: canary
+  ports:
   - protocol: TCP
     port: 80
     targetPort: 5000
-    nodePort: 30083
+    #    nodePort: 30083
   type: NodePort
