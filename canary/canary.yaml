@@ -33,8 +33,7 @@ metadata:
   name: canary-service
 spec:
   selector:
-    app: canary
-  ports:
+    app: canary-rollout
   - protocol: TCP
     port: 80
     targetPort: 5000
