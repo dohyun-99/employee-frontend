@@ -1,5 +1,4 @@
 # ArgoCD Blue/Green 배포 예제
-
 apiVersion: argoproj.io/v1alpha1     # apps/v1 대신 argoproj.io/v1alpha1을 사용한다
 kind: Rollout  # Deployment 대신 Rollout을 사용한다
 metadata:
@@ -16,12 +15,15 @@ spec:
         app: rollout-bluegreen
     spec:
       containers:
-      - name: rollouts-demo
-        image: argoproj/rollouts-demo:blue
-        #image: argoproj/rollouts-demo:green
+      - name: frontend
+        image: ghcr.io/dohyun-99/vue_crud_security:master 
+        # ghcr.io/shclub/vue3:v1
         imagePullPolicy: Always
+        env:
+          - name: BACKEND_API_URL
+            value: "backend" 
         ports:
-        - containerPort: 8080
+        - containerPort: 80
   strategy:
     blueGreen: 
       #activeService는 이전의 배포된 Blue 서비스
